@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabla de Datos</title>
+    <!-- Agregar Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Estilos personalizados para la tabla */
+        table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            background-color: #f8f9fa;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Datos de Muestra</h2>
+
+        <!-- Tabla Bootstrap -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>IP</th>
+                    <th>PAÍS</th>
+                    <th>CONTINENTE</th>
+                    <th>ZONA HORARIA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Datos de muestra -->
+                <tr>
+                    <td>192.168.1.1</td>
+                    <td>Estados Unidos</td>
+                    <td>América del Norte</td>
+                    <td>UTC-5</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Agregar Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
