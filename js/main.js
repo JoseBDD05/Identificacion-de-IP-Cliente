@@ -9,8 +9,8 @@ const SolicitudAPI = () => {
   axios.get("https://itp-bdd.000webhostapp.com/php-geoip-api/index.php")
     .then(function (response) {
       // manejar respuesta exitosa
-      console.log(response.data.ip);
-      if (ip) ip.innerHTML = response.data.ip;
+      console.log(response.data);
+      ip.innerHTML = response.data.ip;
       if (pais) pais.innerHTML = response.data.pais;
       if (continente) continente.innerHTML = response.data.continente;
       if (zona_horaria) zona_horaria.innerHTML = response.data.zona_horaria;
