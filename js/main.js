@@ -1,5 +1,5 @@
 //alert("Hola Mundo");
-let ip=document.getElementById("id");
+let ip=document.getElementById("ip");
 let pais=document.getElementById("pais");
 let continente=document.getElementById("continente");
 let zona_horaria=document.getElementById("zona_horaria");
@@ -9,7 +9,7 @@ const SolicitudAPI = () => {
   axios.get("https://itp-bdd.000webhostapp.com/php-geoip-api/index.php")
     .then(function (response) {
       // manejar respuesta exitosa
-      console.log(response.data.ip);
+      console.log(response.data);
       if (ip) ip.innerHTML = response.data.ip;
       if (pais) pais.innerHTML = response.data.pais;
       if (continente) continente.innerHTML = response.data.continente;
