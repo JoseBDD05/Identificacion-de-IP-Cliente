@@ -54,8 +54,6 @@ const SolicitudAPI = () => {
       if (pais) pais.innerHTML = response.data.pais;
       if (continente) continente.innerHTML = response.data.continente;
       if (zona_horaria) zona_horaria.innerHTML = response.data.zona_horaria;
-      if (nombre) nombre.innerHTML = response.data.nombre;
-      if (comida) comida.innerHTML = response.data.comida;
     })
     .catch(function (error) {
       console.log(error);
