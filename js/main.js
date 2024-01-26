@@ -44,9 +44,9 @@ const SolicitudAPI = () => {
     .then(function (response) {
       console.log(response.data);
       ip.innerHTML = response.data.ip;
-      if (pais) pais.innerHTML = response.data.pais;
-      if (continente) continente.innerHTML = response.data.continente;
-      if (zona_horaria) zona_horaria.innerHTML = response.data.zona_horaria;
+      if (paisElement) pais.innerHTML = response.data.pais;
+      if (continenteElement) continente.innerHTML = response.data.continente;
+      if (zona_horariaElement) zona_horaria.innerHTML = response.data.zona_horaria;
       // No necesitas asignar valores a nombre y comida aquí, ya que estos se obtienen del formulario
     })
     .catch(function (error) {
