@@ -13,7 +13,7 @@ function enviarFormulario() {
     comida: comida
   };
 
-  axios.post('URL_DEL_SERVIDOR', datos)
+  axios.post('https://itp-bdd.000webhostapp.com/php-geoip-api/index.php', datos)
     .then(function (response) {
       console.log(response.data);
       // Puedes realizar acciones adicionales después de enviar el formulario
