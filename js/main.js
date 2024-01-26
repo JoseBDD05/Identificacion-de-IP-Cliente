@@ -10,10 +10,6 @@ function enviarFormulario() {
   var nombre = document.getElementById('nombre').value;
   var comida = document.getElementById('comida').value;
   var datos = {
-    ip: ipElement.value,
-    pais: paisElement.value,
-    continente: continenteElement.value,
-    zona_horaria: zona_horariaElement.value,
     nombre: nombre,
     comida: comida
   };
