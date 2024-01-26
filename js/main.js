@@ -1,73 +1,32 @@
-// Variables para los elementos del DOM
-let ipElement = document.getElementById("ip");
-let paisElement = document.getElementById("pais");
-let continenteElement = document.getElementById("continente");
-let zona_horariaElement = document.getElementById("zona_horaria");
-let tablaDatos = document.getElementById("tablaDatos"); // Asegúrate de tener un elemento con el id "tablaDatos"
+//alert("Hola Mundo");
+let ip=document.getElementById("ip");
+let pais=document.getElementById("pais");
+let continente=document.getElementById("continente");
+let zona_horaria=document.getElementById("zona_horaria");
 
-// Función para enviar el formulario con Axios y agregar a la tabla
-function enviarFormulario() {
-  var nombre = document.getElementById('nombre').value;
-  var comida = document.getElementById('comida').value;
-  var datos = {
-    ip: ipElement.value,
-    pais: paisElement.value,
-    continente: continenteElement.value,
-    zona_horaria: zona_horariaElement.value,
-    nombre: nombre,
-    comida: comida
-  };
-
-  // Agregar a la tabla
-  var fila = `<tr><td>${nombre}</td><td>${comida}</td></tr>`;
-  tablaDatos.innerHTML += fila;
-
-  // Enviar al servidor
-  axios.post('https://itp-bdd.000webhostapp.com/php-geoip-api/index.php', datos)
-    .then(function (response) {
-      console.log(response.data);
-      // Puedes realizar acciones adicionales después de enviar el formulario al servidor
-    })
-    .catch(function (error) {
-      console.error(error);
-      // Manejar errores en caso necesario
-    });
-
-  // Enviar al servidor centralizado
-  axios.post('Central.php', datos)
-    .then(function (response) {
-      console.log(response.data);
-      // Puedes realizar acciones adicionales después de enviar el formulario al servidor centralizado
-    })
-    .catch(function (error) {
-      console.error(error);
-      // Manejar errores en caso necesario
-    });
-}
-
-// Función para hacer la solicitud a la API
 const SolicitudAPI = () => {
+  // Hacer una petición para un usuario con ID especifico
   axios.get("https://itp-bdd.000webhostapp.com/php-geoip-api/index.php")
     .then(function (response) {
+      // manejar respuesta exitosa
       console.log(response.data);
-      ipElement.innerHTML = response.data.ip;
-      if (paisElement) paisElement.innerHTML = response.data.pais;
-      if (continenteElement) continenteElement.innerHTML = response.data.continente;
-      if (zona_horariaElement) zona_horariaElement.innerHTML = response.data.zona_horaria;
-      // No necesitas asignar valores a nombre y comida aquí, ya que estos se obtienen del formulario
+      ip.innerHTML = response.data.ip;
+      if (pais) pais.innerHTML = response.data.pais;
+      if (continente) continente.innerHTML = response.data.continente;
+      if (zona_horaria) zona_horaria.innerHTML = response.data.zona_horaria;
     })
     .catch(function (error) {
+      // manejar error
       console.log(error);
     })
     .finally(function () {
-      // siempre será ejecutado
+      // siempre sera executado
     });
 };
 
-// Llama al evento LOAD cada vez que se refresca o se actualiza la página
-// Y llama a la función SolicitudAPI que tiene la rutina de llamada a la API desde Axios
-window.addEventListener('load', function () {
-  SolicitudAPI();
-  // Puedes agregar más acciones después de cargar la página si es necesario
-});
+// Llama al evento LOAD cada vez que se refresca o se actualiza la pagina 
+// Y llama a la función solicitud API que tiene la rutina de llama a la API
+// desde el Axios 
+window.addEventListener('load', SolicitudAPI);
+
 
