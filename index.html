@@ -37,13 +37,27 @@
 
 <body>
     <!-- Información de la API -->
-    <div class="mt-4">
-        <h4>Información de la API:</h4>
-        <p>IP: <span id="ip"></span></p>
-        <p>País: <span id="pais"></span></p>
-        <p>Continente: <span id="continente"></span></p>
-        <p>Zona Horaria: <span id="zona_horaria"></span></p>
-    </div>
+    <!-- Tabla Bootstrap -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>IP</th>
+                <th>PAÍS</th>
+                <th>CONTINENTE</th>
+                <th>ZONA HORARIA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Datos de muestra -->
+            <tr>
+                <td id="ip">-</td>
+                <td id="pais">-</td>
+                <td id="continente">-</td>
+                <td id="zona_horaria">-</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
     <div class="container mt-5">
         <!-- Formulario -->
         <form id="miFormulario">
