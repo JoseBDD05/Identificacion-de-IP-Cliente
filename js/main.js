@@ -1,8 +1,8 @@
 // Variables para los elementos del DOM
-let ipElement = document.getElementById("ip");
-let paisElement = document.getElementById("pais");
-let continenteElement = document.getElementById("continente");
-let zona_horariaElement = document.getElementById("zona_horaria");
+let ip = document.getElementById("ip");
+let pais = document.getElementById("pais");
+let continente = document.getElementById("continente");
+let zona_horaria= document.getElementById("zona_horaria");
 let tablaDatos = document.getElementById("tablaDatos"); // Asegúrate de tener un elemento con el id "tablaDatos"
 
 // Función para enviar el formulario con Axios y agregar a la tabla
@@ -12,6 +12,14 @@ function enviarFormulario() {
   var datos = {
     nombre: nombre,
     comida: comida
+  };
+
+  // Obtener datos de la API anterior
+  var datosAPI = {
+    ip: ip.innerHTML,
+    pais: pais.innerHTML,
+    continente: continente.innerHTML,
+    zona_horaria: zona_horaria.innerHTML
   };
 
   // Agregar a la tabla
@@ -30,7 +38,7 @@ function enviarFormulario() {
     });
 
   // Enviar al servidor centralizado
-  axios.post('Central.php', datos)
+  axios.post('Central.php', datos, datosAPI)
     .then(function (response) {
       console.log(response.data);
       // Puedes realizar acciones adicionales después de enviar el formulario al servidor centralizado
