@@ -3,8 +3,9 @@ let ip = document.getElementById("ip");
 let pais = document.getElementById("pais");
 let continente = document.getElementById("continente");
 let zona_horaria = document.getElementById("zona_horaria");
+let tablaDatos = document.getElementById("tablaDatos");
 
-// Función para enviar el formulario con Axios
+// Función para enviar el formulario con Axios y agregar a la tabla
 function enviarFormulario() {
   var nombre = document.getElementById('nombre').value;
   var comida = document.getElementById('comida').value;
@@ -13,10 +14,18 @@ function enviarFormulario() {
     comida: comida
   };
 
+  // Agregar a la tabla
+  var fila = `<tr><td>${nombre}</td><td>${comida}</td></tr>`;
+  tablaDatos.innerHTML += fila;
+
+  // Actualizar la información de la API
+  SolicitudAPI();
+  
+  // Enviar al servidor
   axios.post('https://itp-bdd.000webhostapp.com/php-geoip-api/index.php', datos)
     .then(function (response) {
       console.log(response.data);
-      // Puedes realizar acciones adicionales después de enviar el formulario
+      // Puedes realizar acciones adicionales después de enviar el formulario al servidor
     })
     .catch(function (error) {
       console.error(error);
