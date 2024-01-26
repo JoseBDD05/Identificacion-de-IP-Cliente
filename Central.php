@@ -1,17 +1,5 @@
 <?php
-
-// Conexión a la base de datos (ajusta los valores según tu configuración)
-$servername = "localhost";
-$username = "root";
-$password = "1234";
-$dbname = "dbcentralizada";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+ include ('connect.php');
 
 // Obtener datos del formulario
 $ip = $_POST['ip'];
