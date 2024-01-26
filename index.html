@@ -36,52 +36,38 @@
 </head>
 
 <body>
+    <body>
+        <div class="container mt-5">
+            <!-- Formulario -->
+            <form id="miFormulario">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="comida">Comida:</label>
+                    <input type="text" class="form-control" id="comida" name="comida" required>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="enviarFormulario()">Enviar</button>
+            </form>
 
-    <div class="container mt-5">
-        <h2 class="mb-4">Datos de Muestra</h2>
+            <!-- Información de la API -->
+            <div class="mt-4">
+                <h4>Información de la API:</h4>
+                <p>IP: <span id="ip"></span></p>
+                <p>País: <span id="pais"></span></p>
+                <p>Continente: <span id="continente"></span></p>
+                <p>Zona Horaria: <span id="zona_horaria"></span></p>
+            </div>
+        </div>
 
-        <!-- Tabla Bootstrap -->
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>IP</th>
-                    <th>PAÍS</th>
-                    <th>CONTINENTE</th>
-                    <th>ZONA HORARIA</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Datos de muestra -->
-                <tr>
-                    <td id="ip">-</td>
-                    <td id="pais">-</td>
-                    <td id="continente">-</td>
-                    <td id="zona_horaria">-</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="container mt-5">
-        <form id="miFormulario">
-          <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
-          </div>
-          <div class="form-group">
-            <label for="comida">Comida:</label>
-            <input type="text" class="form-control" id="comida" name="comida" required>
-          </div>
-          <button type="button" class="btn btn-primary" onclick="enviarFormulario()">Enviar</button>
-        </form>
-      </div>
+        <!-- Agregar Bootstrap JS y dependencias -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <!-- Agregar Bootstrap JS y dependencias -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 
 </html>

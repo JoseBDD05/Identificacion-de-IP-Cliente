@@ -48,4 +48,3 @@ window.addEventListener('load', function () {
   SolicitudAPI();
   // Puedes agregar más acciones después de cargar la página si es necesario
 });
-
