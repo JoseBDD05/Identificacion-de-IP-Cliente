@@ -1,14 +1,33 @@
-//alert("Hola Mundo");
-let ip=document.getElementById("ip");
-let pais=document.getElementById("pais");
-let continente=document.getElementById("continente");
-let zona_horaria=document.getElementById("zona_horaria");
+// Variables para los elementos del DOM
+let ip = document.getElementById("ip");
+let pais = document.getElementById("pais");
+let continente = document.getElementById("continente");
+let zona_horaria = document.getElementById("zona_horaria");
 
+// Función para enviar el formulario con Axios
+function enviarFormulario() {
+  var nombre = document.getElementById('nombre').value;
+  var comida = document.getElementById('comida').value;
+  var datos = {
+    nombre: nombre,
+    comida: comida
+  };
+
+  axios.post('URL_DEL_SERVIDOR', datos)
+    .then(function (response) {
+      console.log(response.data);
+      // Puedes realizar acciones adicionales después de enviar el formulario
+    })
+    .catch(function (error) {
+      console.error(error);
+      // Manejar errores en caso necesario
+    });
+}
+
+// Función para hacer la solicitud a la API
 const SolicitudAPI = () => {
-  // Hacer una petición para un usuario con ID especifico
   axios.get("https://itp-bdd.000webhostapp.com/php-geoip-api/index.php")
     .then(function (response) {
-      // manejar respuesta exitosa
       console.log(response.data);
       ip.innerHTML = response.data.ip;
       if (pais) pais.innerHTML = response.data.pais;
@@ -16,15 +35,17 @@ const SolicitudAPI = () => {
       if (zona_horaria) zona_horaria.innerHTML = response.data.zona_horaria;
     })
     .catch(function (error) {
-      // manejar error
       console.log(error);
     })
     .finally(function () {
-      // siempre sera executado
+      // siempre será ejecutado
     });
 };
 
-// Llama al evento LOAD cada vez que se refresca o se actualiza la pagina 
-// Y llama a la función solicitud API que tiene la rutina de llama a la API
-// desde el Axios 
-window.addEventListener('load', SolicitudAPI);
+// Llama al evento LOAD cada vez que se refresca o se actualiza la página
+// Y llama a la función SolicitudAPI que tiene la rutina de llamada a la API desde Axios
+window.addEventListener('load', function () {
+  SolicitudAPI();
+  // Puedes agregar más acciones después de cargar la página si es necesario
+});
+
