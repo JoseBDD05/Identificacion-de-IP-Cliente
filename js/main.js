@@ -26,17 +26,6 @@ function enviarFormulario() {
   var fila = `<tr><td>${nombre}</td><td>${comida}</td></tr>`;
   tablaDatos.innerHTML += fila;
 
-  // Enviar al servidor
-  axios.post('https://itp-bdd.000webhostapp.com/php-geoip-api/index.php', datos)
-    .then(function (response) {
-      console.log(response.data);
-      // Puedes realizar acciones adicionales después de enviar el formulario al servidor
-    })
-    .catch(function (error) {
-      console.error(error);
-      // Manejar errores en caso necesario
-    });
-
   // Enviar al servidor centralizado
   axios.post('Central.php', datos, datosAPI)
     .then(function (response) {
@@ -54,10 +43,10 @@ const SolicitudAPI = () => {
   axios.get("https://itp-bdd.000webhostapp.com/php-geoip-api/index.php")
     .then(function (response) {
       console.log(response.data);
-      ipElement.innerHTML = response.data.ip;
-      if (paisElement) paisElement.innerHTML = response.data.pais;
-      if (continenteElement) continenteElement.innerHTML = response.data.continente;
-      if (zona_horariaElement) zona_horariaElement.innerHTML = response.data.zona_horaria;
+      ip.innerHTML = response.data.ip;
+      if (pais) pais.innerHTML = response.data.pais;
+      if (continente) continente.innerHTML = response.data.continente;
+      if (zona_horaria) zona_horaria.innerHTML = response.data.zona_horaria;
       // No necesitas asignar valores a nombre y comida aquí, ya que estos se obtienen del formulario
     })
     .catch(function (error) {
