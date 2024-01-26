@@ -14,10 +14,10 @@ if ($conn->connect_error) {
 }
 
 // Obtener datos del formulario
-$nombre = $_POST['ip'];
-$nombre = $_POST['pais'];
-$nombre = $_POST['continente'];
-$nombre = $_POST['zona_horaria'];
+$ip = $_POST['ip'];
+$pais = $_POST['pais'];
+$continente = $_POST['continente'];
+$zona_horaria = $_POST['zona_horaria'];
 $nombre = $_POST['nombre'];
 $comida = $_POST['comida'];
 
