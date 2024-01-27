@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost";
+$servername = "https://databases.000webhost.com/";
 $username = "id21796862_francia";
 $password = "1234Jose@";
 $dbname = "id21796862_datosfrancia";
