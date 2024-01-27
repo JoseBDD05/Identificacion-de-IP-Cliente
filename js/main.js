@@ -7,17 +7,17 @@ let tablaDatos= document.getElementById("tablaDatos");
 
 // Función para enviar el formulario con Axios y agregar a la tabla
 function enviarFormulario() {
-  var ip = document.getElementById('ip').innerHTML;
-  var pais = document.getElementById('pais').innerHTML;
-  var continente = document.getElementById('continente').innerHTML;
-  var zona_horaria = document.getElementById('zona_horaria').innerHTML;
+  var ipValue = document.getElementById('ip').innerHTML;
+  var paisValue = document.getElementById('pais').innerHTML;
+  var continenteValue = document.getElementById('continente').innerHTML;
+  var zona_horariaValue = document.getElementById('zona_horaria').innerHTML;
   var nombre = document.getElementById('nombre').value;
   var moneda = document.getElementById('moneda').value;
   var datos = {
-    ip: ip,
-    pais: pais,
-    continente: continente,
-    zona_horaria: zona_horaria,
+    ip: ipValue,
+    pais: paisValue,
+    continente: continenteValue,
+    zona_horaria: zona_horariaValue,
     nombre: nombre,
     moneda: moneda
   };
@@ -44,9 +44,9 @@ const SolicitudAPI = () => {
     .then(function (response) {
       console.log(response.data);
       ip.innerHTML = response.data.ip;
-      if (pais) pais.innerHTML = response.data.pais;
-      if (continente) continente.innerHTML = response.data.continente;
-      if (zona_horaria) zona_horaria.innerHTML = response.data.zona_horaria;
+      pais.innerHTML = response.data.pais;
+      continente.innerHTML = response.data.continente;
+      zona_horaria.innerHTML = response.data.zona_horaria;
       // No necesitas asignar valores a nombre y comida aquí, ya que estos se obtienen del formulario
     })
     .catch(function (error) {

@@ -10,18 +10,9 @@ header("Access-Control-Allow-Headers: Content-Type");
     $zona_horaria = $_POST['zona_horaria'];
     $nombre = $_POST['nombre'];
     $moneda = $_POST['moneda'];
+    $sql = "INSERT INTO DatosFrancia (ip, pais, continente, zona_horaria, nombre, moneda) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$ip, $pais, $continente, $zona_horaria, $nombre, $moneda]);
 
-    $sql = "INSERT INTO DatosFrancia (ip, pais, continente, zona_horaria, nombre, moneda) VALUES ('$ip', 
-    '$pais', '$continente', '$zona_horaria','$nombre', '$moneda')";
-
-
-    if ($conn->query($sql) === TRUE) {
-        echo json_encode(array('status' => 'success', 'message' => 'Datos insertados correctamente'));
-    } else {
-        echo json_encode(array('status' => 'error', 'message' => 'Error al insertar datos: ' . $conn->error));
-    }
-} else {
-    echo json_encode(array('status' => 'error', 'message' => 'Método no permitido'));
-}
 $conn->close();
 ?>
