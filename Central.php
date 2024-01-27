@@ -1,14 +1,15 @@
 <?php
  include ('connect.php');
-    $ip = $data['ip'];
-    $pais = $data['pais'];
-    $continente = $data['continente'];
-    $zona_horaria = $data['zona_horaria'];
-    $nombre = $data['nombre'];
-    $moneda = $data['moneda'];
+    // Recibe los datos del cliente (suponiendo que se envían como JSON)
+    $ip = $_POST['ip'];
+    $pais = $_POST['pais'];
+    $continente = $_POST['continente'];
+    $zona_horaria = $_POST['zona_horaria'];
+    $nombre = $_POST['nombre'];
+    $moneda = $_POST['moneda'];
 
-    $sql = "INSERT INTO DatosFrancia (ip, pais, continente, zona_horaria, nombre, comida) VALUES ('$ip', 
-'$pais', '$continente', '$zona_horaria','$nombre', '$comida')";
+    $sql = "INSERT INTO DatosFrancia (ip, pais, continente, zona_horaria, nombre, moneda) VALUES ('$ip', 
+    '$pais', '$continente', '$zona_horaria','$nombre', '$moneda')";
 
 
     if ($conn->query($sql) === TRUE) {
