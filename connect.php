@@ -1,5 +1,5 @@
 <?php
-$servername = "https://databases.000webhost.com/";
+$servername = "https://itp-bdd.000webhostapp.com";
 $username = "id21796862_francia";
 $password = "1234Jose@";
 $dbname = "id21796862_datosfrancia";
