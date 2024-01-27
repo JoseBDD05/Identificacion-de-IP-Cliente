@@ -30,7 +30,7 @@ function enviarFormulario() {
   console.log('Datos a enviar:', JSON.stringify(datos));
 
   // Enviar al servidor centralizado
-  axios.post("https://itp-bdd.000webhostapp.com/Central.php", JSON.stringify(datos), {
+  axios.post("https://itp-bdd.000webhostapp.com/Central.php", datos, {
     headers: {
         'Content-Type': 'application/json'
     }
