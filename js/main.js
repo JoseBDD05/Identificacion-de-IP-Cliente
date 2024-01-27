@@ -23,9 +23,9 @@ function enviarFormulario() {
     moneda: moneda
   };
 
-  // Agregar a la tabla
-  var fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
-    tablaDatos.querySelector('tbody').innerHTML += fila;
+   // Agregar a la tabla
+   var fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
+   tablaDatos.innerHTML += fila;
 
   // Enviar al servidor centralizado
   axios.post('https://itp-bdd.000webhostapp.com/Central.php', datos)
