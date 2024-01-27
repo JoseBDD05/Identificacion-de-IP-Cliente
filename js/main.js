@@ -26,6 +26,9 @@ function enviarFormulario() {
   var fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
   tablaDatos.innerHTML += fila;
 
+  // Imprimir datos en la consola
+  console.log('Datos a enviar:', JSON.stringify(datos));
+
   // Enviar al servidor centralizado
   axios.post('https://itp-bdd.000webhostapp.com/Central.php', JSON.stringify(datos), {
     headers: {
