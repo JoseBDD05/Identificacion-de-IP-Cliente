@@ -10,10 +10,10 @@ function enviarFormulario() {
   var nombre = document.getElementById('nombre').value;
   var moneda = document.getElementById('moneda').value;
   // Obtener valores de la API
-  var ipValue = document.getElementById('ip').innerHTML;
-  var paisValue = document.getElementById('pais').innerHTML;
-  var continenteValue = document.getElementById('continente').innerHTML;
-  var zona_horariaValue = document.getElementById('zona_horaria').innerHTML;
+  var ipValue = ip.innerHTML;
+  var paisValue = pais.innerHTML;
+  var continenteValue = continente.innerHTML;
+  var zona_horariaValue = zona_horaria.innerHTML;
   var datos = {
     ip: ipValue,
     pais: paisValue,
@@ -28,7 +28,11 @@ function enviarFormulario() {
    tablaDatos.innerHTML += fila;
 
   // Enviar al servidor centralizado
-  axios.post('https://itp-bdd.000webhostapp.com/Central.php', datos)
+  axios.post('https://itp-bdd.000webhostapp.com/Central.php', datos, {
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
     .then(function (response) {
       console.log(response.data);
       // Puedes realizar acciones adicionales después de enviar el formulario al servidor centralizado
