@@ -22,7 +22,7 @@ function enviarFormulario() {
   };
 
   // Agregar a la tabla
-  var fila = `<tr><td>${nombre}</td><td>${comida}</td></tr>`;
+  var fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
   tablaDatos.innerHTML += fila;
 
   // Enviar al servidor centralizado

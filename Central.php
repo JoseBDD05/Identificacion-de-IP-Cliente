@@ -20,6 +20,5 @@
 } else {
     echo json_encode(array('status' => 'error', 'message' => 'Método no permitido'));
 }
-
 $conn->close();
 ?>
