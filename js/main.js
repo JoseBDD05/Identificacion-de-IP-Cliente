@@ -27,7 +27,7 @@ function enviarFormulario() {
   tablaDatos.innerHTML += fila;
 
   // Enviar al servidor centralizado
-  axios.post('Central.php', datos)
+  axios.post('https://itp-bdd.000webhostapp.com/Central.php', datos)
     .then(function (response) {
       console.log(response.data);
       // Puedes realizar acciones adicionales después de enviar el formulario al servidor centralizado
