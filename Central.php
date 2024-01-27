@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
  include ('connect.php');
     // Recibe los datos del cliente (suponiendo que se envían como JSON)
     $ip = $_POST['ip'];

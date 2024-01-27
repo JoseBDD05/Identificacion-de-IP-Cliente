@@ -3,6 +3,7 @@ let ip = document.getElementById("ip");
 let pais = document.getElementById("pais");
 let continente = document.getElementById("continente");
 let zona_horaria= document.getElementById("zona_horaria");
+let tablaDatos= document.getElementById("tablaDatos");
 
 // Función para enviar el formulario con Axios y agregar a la tabla
 function enviarFormulario() {
