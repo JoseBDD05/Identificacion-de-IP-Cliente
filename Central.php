@@ -1,16 +1,13 @@
 <?php
  include ('connect.php');
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = json_decode(file_get_contents("https://josebdd05.github.io/Identificacion-de-IP-Cliente/index.html"), true);
-
     $ip = $data['ip'];
     $pais = $data['pais'];
     $continente = $data['continente'];
     $zona_horaria = $data['zona_horaria'];
     $nombre = $data['nombre'];
-    $comida = $data['comida'];
+    $moneda = $data['moneda'];
 
-    $sql = "INSERT INTO datos (ip, pais, continente, zona_horaria, nombre, comida) VALUES ('$ip', 
+    $sql = "INSERT INTO DatosFrancia (ip, pais, continente, zona_horaria, nombre, comida) VALUES ('$ip', 
 '$pais', '$continente', '$zona_horaria','$nombre', '$comida')";
 
 
