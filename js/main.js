@@ -29,37 +29,40 @@ function enviarFormulario() {
   // Imprimir datos en la consola
   console.log('Datos a enviar:', JSON.stringify(datos));
 
-  // Enviar al servidor centralizado
-  axios.post('https://itp-bdd.000webhostapp.com/Central.php', JSON.stringify(datos), {
+  // Enviar al servidor centralizado usando Fetch
+  fetch('https://itp-bdd.000webhostapp.com/Central.php', {
+    method: 'POST',
     headers: {
-        'Content-Type': 'application/json'
-    }
-})
-    .then(function (response) {
-      console.log(response.data);
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(datos)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
       // Puedes realizar acciones adicionales después de enviar el formulario al servidor centralizado
     })
-    .catch(function (error) {
+    .catch(error => {
       console.error(error);
       // Manejar errores en caso necesario
     });
 }
 
-// Función para hacer la solicitud a la API
 const SolicitudAPI = () => {
-  axios.get("https://itp-bdd.000webhostapp.com/php-geoip-api/index.php")
-    .then(function (response) {
-      console.log(response.data);
-      ip.innerHTML = response.data.ip;
-      pais.innerHTML = response.data.pais;
-      continente.innerHTML = response.data.continente;
-      zona_horaria.innerHTML = response.data.zona_horaria;
+  fetch("https://itp-bdd.000webhostapp.com/php-geoip-api/index.php")
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      ip.innerHTML = data.ip;
+      pais.innerHTML = data.pais;
+      continente.innerHTML = data.continente;
+      zona_horaria.innerHTML = data.zona_horaria;
       // No necesitas asignar valores a nombre y comida aquí, ya que estos se obtienen del formulario
     })
-    .catch(function (error) {
+    .catch(error => {
       console.log(error);
     })
-    .finally(function () {
+    .finally(() => {
       // siempre será ejecutado
     });
 };
