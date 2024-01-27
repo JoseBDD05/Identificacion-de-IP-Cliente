@@ -7,12 +7,13 @@ let tablaDatos= document.getElementById("tablaDatos");
 
 // Función para enviar el formulario con Axios y agregar a la tabla
 function enviarFormulario() {
-  var ipValue = document.getElementById('ip').innerHTML;
-  var paisValue = document.getElementById('pais').innerHTML;
-  var continenteValue = document.getElementById('continente').innerHTML;
-  var zona_horariaValue = document.getElementById('zona_horaria').innerHTML;
   var nombre = document.getElementById('nombre').value;
   var moneda = document.getElementById('moneda').value;
+  // Obtener valores de la API
+  var ipValue = ip.innerHTML;
+  var paisValue = pais.innerHTML;
+  var continenteValue = continente.innerHTML;
+  var zona_horariaValue = zona_horaria.innerHTML;
   var datos = {
     ip: ipValue,
     pais: paisValue,
@@ -24,7 +25,7 @@ function enviarFormulario() {
 
   // Agregar a la tabla
   var fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
-  tablaDatos.innerHTML += fila;
+    tablaDatos.querySelector('tbody').innerHTML += fila;
 
   // Enviar al servidor centralizado
   axios.post('https://itp-bdd.000webhostapp.com/Central.php', datos)
