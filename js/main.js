@@ -10,10 +10,10 @@ function enviarFormulario() {
   var nombre = document.getElementById('nombre').value;
   var moneda = document.getElementById('moneda').value;
   // Obtener valores de la API
-  var ipValue = ip.innerHTML;
-  var paisValue = pais.innerHTML;
-  var continenteValue = continente.innerHTML;
-  var zona_horariaValue = zona_horaria.innerHTML;
+  var ipValue = document.getElementById('ip').innerHTML;
+  var paisValue = document.getElementById('pais').innerHTML;
+  var continenteValue = document.getElementById('continente').innerHTML;
+  var zona_horariaValue = document.getElementById('zona_horaria').innerHTML;
   var datos = {
     ip: ipValue,
     pais: paisValue,
