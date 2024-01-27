@@ -10,12 +10,16 @@ function enviarFormulario() {
   var nombre = document.getElementById('nombre').value;
   var moneda = document.getElementById('moneda').value;
   var datos = {
-    ip: ip.innerHTML,
-    pais: pais.innerHTML,
-    continente: continente.innerHTML,
-    zona_horaria: zona_horaria.innerHTML,
-    nombre: nombre,
-    moneda: moneda
+    formulario: {
+      nombre: nombre,
+      moneda: moneda
+    },
+    api: {
+      ip: ip.innerHTML,
+      pais: pais.innerHTML,
+      continente: continente.innerHTML,
+      zona_horaria: zona_horaria.innerHTML
+    }
   };
 
   // Agregar a la tabla
