@@ -30,7 +30,7 @@ function enviarFormulario() {
   console.log('Datos a enviar:', JSON.stringify(datos));
 
   // Enviar al servidor centralizado usando Fetch
-  fetch('https://itp-bdd.000webhostapp.com/Central.php', {
+  fetch("https://itp-bdd.000webhostapp.com/Central.php", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
