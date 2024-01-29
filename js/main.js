@@ -7,34 +7,30 @@ let tablaDatos = document.getElementById("tablaDatos");
 
 // Función para enviar el formulario con Axios y agregar a la tabla
 function enviarFormulario() {
-  var nombre = document.getElementById('nombre').value;
-  var moneda = document.getElementById('moneda').value;
-  var datos = {
+  let nombre = document.getElementById('nombre').value;
+  let moneda = document.getElementById('moneda').value;
+  let datos = {
     formulario: {
-      nombre: nombre,
-      moneda: moneda
+      nombre: nombre.value,
+      moneda: moneda.value
     },
     api: {
-      ip: ip.innerHTML,
-      pais: pais.innerHTML,
-      continente: continente.innerHTML,
-      zona_horaria: zona_horaria.innerHTML
+      ip: ip.value,
+      pais: pais.value,
+      continente: continente.value,
+      zona_horaria: zona_horaria.value
     }
   };
 
   // Agregar a la tabla
-  var fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
+  let fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
   tablaDatos.innerHTML += fila;
 
   // Imprimir datos en la consola
   console.log('Datos a enviar:', JSON.stringify(datos));
 
   // Enviar al servidor centralizado
-  axios.post("https://itp-bdd.000webhostapp.com/Central.php", datos, {
-    headers: {
-        'Content-Type': 'application/json'
-    }
-})
+  axios.post("https://itp-bdd.000webhostapp.com/Central.php", datos)
     .then(function (response) {
       console.log(response.data);
       // Puedes realizar acciones adicionales después de enviar el formulario al servidor centralizado
