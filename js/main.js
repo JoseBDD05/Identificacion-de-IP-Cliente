@@ -11,8 +11,8 @@ function enviarFormulario() {
   let moneda = document.getElementById('moneda').value;
   let datos = {
     formulario: {
-      nombre: nombre.value,
-      moneda: moneda.value
+      nombre: nombre,
+      moneda: moneda
     },
     api: {
       ip: ip.value,
