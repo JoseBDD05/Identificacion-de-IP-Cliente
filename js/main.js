@@ -9,18 +9,16 @@ let tablaDatos = document.getElementById("tablaDatos");
 function enviarFormulario() {
   var nombre = document.getElementById('nombre').value;
   var moneda = document.getElementById('moneda').value;
+
   var datos = {
-    formulario: {
-      nombre: nombre,
-      moneda: moneda
-    },
-    api: {
-      ip: ip.innerHTML,
-      pais: pais.innerHTML,
-      continente: continente.innerHTML,
-      zona_horaria: zona_horaria.innerHTML
-    }
+    nombre: nombre,
+    moneda: moneda,
+    ip: ip.value,
+    pais: pais.value,
+    continente: continente.value,
+    zona_horaria: zona_horaria.value
   };
+  console.log(datos);
 
   // Agregar a la tabla
   var fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
@@ -32,12 +30,31 @@ function enviarFormulario() {
   // Enviar al servidor centralizado
   axios.post("https://itp-bdd.000webhostapp.com/Central.php", datos, {
     headers: {
-        'Content-Type': 'application/json'
+      'Content-Type': 'application/json'
     }
-})
+  })
     .then(function (response) {
       console.log(response.data);
+      // Llamada a función para insertar en la base de datos
+      insertarEnBaseDeDatos(datos);
       // Puedes realizar acciones adicionales después de enviar el formulario al servidor centralizado
+    })
+    .catch(function (error) {
+      console.error(error);
+      // Manejar errores en caso necesario
+    });
+}
+
+// Función para insertar datos en la base de datos
+function insertarEnBaseDeDatos(datos) {
+  axios.post("https://itp-bdd.000webhostapp.com/Central.php", datos, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(function (response) {
+      console.log(response.data);
+      // Puedes realizar acciones adicionales después de insertar en la base de datos
     })
     .catch(function (error) {
       console.error(error);
