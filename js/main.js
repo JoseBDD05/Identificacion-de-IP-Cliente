@@ -15,10 +15,10 @@ function enviarFormulario() {
       moneda: moneda
     },
     api: {
-      ip: ip,
-      pais: pais,
-      continente: continente,
-      zona_horaria: zona_horaria
+      ip: ip.innerHTML,
+      pais: pais.innerHTML,
+      continente: continente.innerHTML,
+      zona_horaria: zona_horaria.innerHTML
     }
   };
 
