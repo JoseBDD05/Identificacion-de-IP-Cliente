@@ -15,22 +15,26 @@ function enviarFormulario() {
       moneda: moneda
     },
     api: {
-      ip: ip.value,
-      pais: pais.value,
-      continente: continente.value,
-      zona_horaria: zona_horaria.value
+      ip: ip.innerHTML,
+      pais: pais.innerHTML,
+      continente: continente.innerHTML,
+      zona_horaria: zona_horaria.innerHTML
     }
   };
 
   // Agregar a la tabla
-  let fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
+  var fila = `<tr><td>${nombre}</td><td>${moneda}</td></tr>`;
   tablaDatos.innerHTML += fila;
 
   // Imprimir datos en la consola
   console.log('Datos a enviar:', JSON.stringify(datos));
 
   // Enviar al servidor centralizado
-  axios.post("https://itp-bdd.000webhostapp.com/Central.php", datos)
+  axios.post("https://itp-bdd.000webhostapp.com/Central.php", datos, {
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
     .then(function (response) {
       console.log(response.data);
       // Puedes realizar acciones adicionales después de enviar el formulario al servidor centralizado
